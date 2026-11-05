@@ -22,3 +22,14 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt: float) -> None:
         # must override
         pass
+
+    def collides_with(self,other) -> bool:
+        pos_1 = self.position
+        pos_2 = other.position
+
+        if (self.radius + other.radius) <= pos_1.distance_to(pos_2):
+            return False
+
+        return True
+   
+
